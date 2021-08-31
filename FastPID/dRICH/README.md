@@ -1,3 +1,5 @@
+Imported from https://gitlab.com/eic/detector/pid/-/tree/master/dRICH 
+
 # dRICH parameterisation
 
 The main file is `dualRICH.h` that contains the definition and implementation of the `dualRICH_Aerogel` and `dualRICH_C2F6` classes.
