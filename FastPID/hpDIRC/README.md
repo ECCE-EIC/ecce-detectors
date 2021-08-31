@@ -1,3 +1,5 @@
+Imported from https://github.com/rdom/fastpid 
+
 Fast reconstruction for EIC Barrel DIRC
 
 DrcPidFast::GetInfo returns normalized probability for e, mu, pi, k, p and deviation of the determined Cherenkov angle from the expected in terms of Cherenkov Track Resoluton.
