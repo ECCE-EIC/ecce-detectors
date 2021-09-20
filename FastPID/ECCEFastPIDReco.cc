@@ -260,6 +260,5 @@ int ECCEFastPIDReco::process_event(PHCompositeNode *topNode)
 //____________________________________________________________________________..
 int ECCEFastPIDReco::End(PHCompositeNode *topNode)
 {
-  std::cout << "ECCEFastPIDReco::End(PHCompositeNode *topNode) This is the End..." << std::endl;
   return Fun4AllReturnCodes::EVENT_OK;
 }

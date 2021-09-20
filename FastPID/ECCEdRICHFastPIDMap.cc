@@ -205,10 +205,27 @@ double ECCEdRICHFastPIDMap::numSigma(double eta, double p, ECCEdRICHFastPIDMap::
   double thr1 = cherenkovThreshold(mass1);
   double thr2 = cherenkovThreshold(mass2);
 
+  if (Verbosity())
+    std::cout << __PRETTY_FUNCTION__ << " " << mName << ": processing tracks momentum = " << p
+              << " eta = " << eta
+              << " thr1 = " << thr1 << " thr2 = " << thr2
+              << std::endl;
+
   /** both particles are above threshold **/
   if (p > thr1 && p > thr2)
-    return (cherenkovAngle(p, mass1) - cherenkovAngle(p, mass2)) / cherenkovAngleSigma(eta, p, mass1);
+  {
 
+    if (Verbosity())
+      std::cout << __PRETTY_FUNCTION__ << " " << mName << ": processing tracks momentum = " << p
+                << " eta = " << eta
+                << " cherenkovAngle(p, mass1) = " << cherenkovAngle(p, mass1)
+                << "  cherenkovAngle(p, mass2)) = " <<  cherenkovAngle(p, mass2)
+                << "  cherenkovAngleSigma(eta, p, mass1) = " <<  cherenkovAngleSigma(eta, p, mass1)
+                << std::endl;
+
+
+    return (cherenkovAngle(p, mass1) - cherenkovAngle(p, mass2)) / cherenkovAngleSigma(eta, p, mass1);
+  }
   /** lightest particle above threshold **/
   if (mThresholdMode && p > thr1)
     return (cherenkovAngle(thr2 + 0.001, mass1) - cherenkovAngle(thr2 + 0.001, mass2)) / cherenkovAngleSigma(eta, thr2 + 0.001, mass1);
