@@ -154,7 +154,6 @@ double ECCEmRICHFastPIDMap::getdAng(double mass, double mom) const
   double sig_ep = 0;    //Emission point error
   double sig_chro = 0;  //Chromatic dispersion error
   double sig_pix = a * pow(cos(theta), 2) / f / sqrt(12.);
-  ;
 
   double sigTh = sqrt(pow(sig_ep, 2) + pow(sig_chro, 2) + pow(sig_pix, 2));
 
@@ -171,7 +170,6 @@ double ECCEmRICHFastPIDMap::getdAngTrk(double mass, double mom) const
   double theta = asin(n * sin(dthc));
 
   double sig_trk = (cos(dthc) / cos(theta)) * (cos(th0) / cos(th0p)) * fTrackResolution;
-  ;
 
   return sig_trk;
 }

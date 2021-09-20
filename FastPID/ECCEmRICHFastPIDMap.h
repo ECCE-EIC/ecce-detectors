@@ -25,7 +25,9 @@ class TF1;
 class ECCEmRICHFastPIDMap : public ECCEFastPIDMap
 {
  public:
-  ECCEmRICHFastPIDMap(double trackResolution = 0.5, double timePrecision = 1.0, double pixS = 0.5);
+
+  //   Detectors.push_back( new mRICH(0.00175, 1, 3, mom) ); // 20 psec @ 100 cm
+  ECCEmRICHFastPIDMap(double trackResolution = 0.00175, double timePrecision = 1.0, double pixS = 3);
   virtual ~ECCEmRICHFastPIDMap();
 
   PIDCandidate_LogLikelihood_map getFastSmearLogLikelihood(int truth_pid, const double momentum, const double theta) const override;
