@@ -22,11 +22,19 @@ class ECCEFastPIDMap
   typedef std::map<EICPIDDefs::PIDCandidate, float> PIDCandidate_LogLikelihood_map;
 
   virtual PIDCandidate_LogLikelihood_map
-    getFastSmearLogLikelihood(int truth_pid, const double momentum, const double theta) const = 0;
+  getFastSmearLogLikelihood(int truth_pid, const double momentum, const double theta) const = 0;
 
-//  EICPIDDefs::PIDCandidate getFastSmearPID(int truth_pid, const double momentum);
+  //  EICPIDDefs::PIDCandidate getFastSmearPID(int truth_pid, const double momentum);
+
+  /// Sets the verbosity of this module (0 by default=quiet).
+  virtual void Verbosity(const int ival) { m_Verbosity = ival; }
+
+  /// Gets the verbosity of this module.
+  virtual int Verbosity() const { return m_Verbosity; }
 
  private:
+  /// The verbosity level. 0 means not verbose at all.
+  int m_Verbosity = 0;
 };
 
 #endif  // ECCEFastPIDMap_H

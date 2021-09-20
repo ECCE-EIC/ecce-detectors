@@ -26,7 +26,7 @@ ECCEmRICHFastPIDMap::ECCEmRICHFastPIDMap(double trackResolution, double timePrec
   fTrackResolution = trackResolution;
   fTimePrecision = timePrecision;
   pLow = 3;
-  pHigh = 10.1;
+  pHigh = 20;
   c = 0.0299792458;  // cm/picosecond
   n = 1.03;          //Aerogel
   a = pixS;          // pixel size 3.0; // mm -- one side
@@ -50,7 +50,7 @@ ECCEmRICHFastPIDMap::~ECCEmRICHFastPIDMap()
 ECCEmRICHFastPIDMap::PIDCandidate_LogLikelihood_map
 ECCEmRICHFastPIDMap::getFastSmearLogLikelihood(int truth_pid, const double momentum, const double theta_rad) const
 {
-  int abs_truth_pid = abs(truth_pid);
+  const int abs_truth_pid = abs(truth_pid);
 
   PIDCandidate_LogLikelihood_map ll_map;
 

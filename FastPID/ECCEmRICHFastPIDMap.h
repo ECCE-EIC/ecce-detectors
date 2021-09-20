@@ -38,11 +38,6 @@ class ECCEmRICHFastPIDMap : public ECCEFastPIDMap
     m_acceptanceThetaMax = max;
   }
 
-  /// Sets the verbosity of this module (0 by default=quiet).
-  virtual void Verbosity(const int ival) { m_Verbosity = ival; }
-
-  /// Gets the verbosity of this module.
-  virtual int Verbosity() const { return m_Verbosity; }
 
  private:
   double m_acceptanceThetaMin = 2.658;  // eta = -1.4;
@@ -74,9 +69,6 @@ class ECCEmRICHFastPIDMap : public ECCEFastPIDMap
 
   double pLow;
   double pHigh;
-
-  /// The verbosity level. 0 means not verbose at all.
-  int m_Verbosity = 0;
 };
 
 #endif /* ECCEmRICHFastPIDMap_H_ */
