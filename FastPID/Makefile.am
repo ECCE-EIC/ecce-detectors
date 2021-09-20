@@ -13,7 +13,9 @@ AM_LDFLAGS = \
 pkginclude_HEADERS = \
   ECCEFastPIDReco.h \
   ECCEFastPIDMap.h \
-  ECCEhpDIRCFastPIDMap.h
+  ECCEhpDIRCFastPIDMap.h \
+  ECCEmRICHFastPIDMap.h \
+  ECCEdRICHFastPIDMap.h
 
 lib_LTLIBRARIES = \
   libECCEFastPIDReco.la
@@ -21,7 +23,9 @@ lib_LTLIBRARIES = \
 libECCEFastPIDReco_la_SOURCES = \
   ECCEFastPIDReco.cc \
   ECCEFastPIDMap.cc \
-  ECCEhpDIRCFastPIDMap.cc
+  ECCEhpDIRCFastPIDMap.cc \
+  ECCEdRICHFastPIDMap.cc \
+  ECCEmRICHFastPIDMap.cc
 
 libECCEFastPIDReco_la_LIBADD = \
   -lphool \

@@ -20,6 +20,7 @@ class ECCEFastPIDReco : public SubsysReco
 {
  public:
   ECCEFastPIDReco(ECCEFastPIDMap *map,
+                  EICPIDDefs::PIDDetector det,
                   const std::string &name = "ECCEFastPIDReco");
 
   virtual ~ECCEFastPIDReco();
@@ -62,6 +63,7 @@ class ECCEFastPIDReco : public SubsysReco
   std::string m_G4HitNodeName = "Uninitialized";
 
   ECCEFastPIDMap *m_pidmap;
+  EICPIDDefs::PIDDetector m_PIDDetector;
 
   std::string m_TrackmapNodeName = "TrackMap";
   std::string m_EICPIDParticleMapNodeName = "EICPIDParticleMap";
