@@ -16,11 +16,9 @@ class EICPIDParticleContainer;
 class PHG4TruthInfoContainer;
 class PHG4HitContainer;
 
-class ECCEFastPIDReco : public SubsysReco
-{
- public:
-  ECCEFastPIDReco(ECCEFastPIDMap *map,
-                  EICPIDDefs::PIDDetector det,
+class ECCEFastPIDReco : public SubsysReco {
+public:
+  ECCEFastPIDReco(ECCEFastPIDMap *map, EICPIDDefs::PIDDetector det,
                   const std::string &name = "ECCEFastPIDReco");
 
   virtual ~ECCEFastPIDReco();
@@ -47,17 +45,20 @@ class ECCEFastPIDReco : public SubsysReco
   /// Called at the end of all processing.
   int End(PHCompositeNode *topNode) override;
 
-  void setTrackmapNodeName(const std::string &name) { m_TrackmapNodeName = name; }
+  void setTrackmapNodeName(const std::string &name) {
+    m_TrackmapNodeName = name;
+  }
 
-  void setEICPIDParticleMapNodeName(const std::string &name) { m_EICPIDParticleMapNodeName = name; }
+  void setEICPIDParticleMapNodeName(const std::string &name) {
+    m_EICPIDParticleMapNodeName = name;
+  }
 
-  void setMatchG4Hit(const std::string &g4hit_node_name)
-  {
+  void setMatchG4Hit(const std::string &g4hit_node_name) {
     m_matchG4Hit = true;
     m_G4HitNodeName = g4hit_node_name;
   }
 
- private:
+private:
   bool m_matchG4Hit = false;
 
   std::string m_G4HitNodeName = "Uninitialized";
@@ -74,4 +75,4 @@ class ECCEFastPIDReco : public SubsysReco
   PHG4HitContainer *m_g4hits = nullptr;
 };
 
-#endif  // ECCEFASTPIDRECO_H
+#endif // ECCEFASTPIDRECO_H

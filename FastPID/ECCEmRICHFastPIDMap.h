@@ -2,7 +2,7 @@
 
 /*!
  * \file ECCEmRICHFastPIDMap.h
- * \brief 
+ * \brief
  * \author Jin Huang <jhuang@bnl.gov>
  * \version $Revision:   $
  * \date $Date: $
@@ -22,26 +22,25 @@ class TF1;
  * \brief ECCEmRICHFastPIDMap
  * Import from ./mRICH/mRICH
  */
-class ECCEmRICHFastPIDMap : public ECCEFastPIDMap
-{
- public:
-
+class ECCEmRICHFastPIDMap : public ECCEFastPIDMap {
+public:
   //   Detectors.push_back( new mRICH(0.00175, 1, 3, mom) ); // 20 psec @ 100 cm
-  ECCEmRICHFastPIDMap(double trackResolution = 0.00175, double timePrecision = 1.0, double pixS = 3);
+  ECCEmRICHFastPIDMap(double trackResolution = 0.00175,
+                      double timePrecision = 1.0, double pixS = 3);
   virtual ~ECCEmRICHFastPIDMap();
 
-  PIDCandidate_LogLikelihood_map getFastSmearLogLikelihood(int truth_pid, const double momentum, const double theta) const override;
+  PIDCandidate_LogLikelihood_map
+  getFastSmearLogLikelihood(int truth_pid, const double momentum,
+                            const double theta) const override;
 
-  void setThetaAcceptanceMinMax(double min, double max)
-  {
+  void setThetaAcceptanceMinMax(double min, double max) {
     m_acceptanceThetaMin = min;
     m_acceptanceThetaMax = max;
   }
 
-
- private:
-  double m_acceptanceThetaMin = 2.658;  // eta = -1.4;
-  double m_acceptanceThetaMax = 3.04;   // eta = -3
+private:
+  double m_acceptanceThetaMin = 2.658; // eta = -1.4;
+  double m_acceptanceThetaMax = 3.04;  // eta = -3
 
   double getAng(double mass, double mom) const;
   double getdAng(double mass, double mom) const;
@@ -51,13 +50,13 @@ class ECCEmRICHFastPIDMap : public ECCEFastPIDMap
   double T_QE(double lam) const;
 
   // Physical constants (should come from elsewhere!)
-  double mPion;    // GeV/c^2
-  double mKaon;    // GeV/c^2
-  double mProton;  // GeV/c^2
-  double c;        // cm/picosecond;
+  double mPion;   // GeV/c^2
+  double mKaon;   // GeV/c^2
+  double mProton; // GeV/c^2
+  double c;       // cm/picosecond;
   double n;
-  double f;  //mm
-  double a;  //mm
+  double f; // mm
+  double a; // mm
   double N_gam;
   double pi;
   double alpha;

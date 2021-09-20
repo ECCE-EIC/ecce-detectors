@@ -7,18 +7,11 @@
 #include <phool/PHCompositeNode.h>
 
 //____________________________________________________________________________..
-ECCEFastPIDMap::ECCEFastPIDMap(const std::string &name)
-{
-
-}
+ECCEFastPIDMap::ECCEFastPIDMap(const std::string &name) {}
 
 //____________________________________________________________________________..
-ECCEFastPIDMap::~ECCEFastPIDMap()
-{
+ECCEFastPIDMap::~ECCEFastPIDMap() {}
 
-}
-
-EICPIDDefs::PIDCandidate getFastSmearPID(int truth_pid, const double momentum)
-{
+EICPIDDefs::PIDCandidate getFastSmearPID(int truth_pid, const double momentum) {
   return EICPIDDefs::InvalidCandiate;
 }
