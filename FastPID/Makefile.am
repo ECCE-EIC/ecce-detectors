@@ -12,14 +12,16 @@ AM_LDFLAGS = \
 
 pkginclude_HEADERS = \
   ECCEFastPIDReco.h \
-  ECCEFastPIDMap.h
+  ECCEFastPIDMap.h \
+  ECCEhpDIRCFastPIDMap.h
 
 lib_LTLIBRARIES = \
   libECCEFastPIDReco.la
 
 libECCEFastPIDReco_la_SOURCES = \
   ECCEFastPIDReco.cc \
-  ECCEFastPIDMap.cc
+  ECCEFastPIDMap.cc \
+  ECCEhpDIRCFastPIDMap.cc
 
 libECCEFastPIDReco_la_LIBADD = \
   -lphool \
@@ -28,7 +30,8 @@ libECCEFastPIDReco_la_LIBADD = \
   -lphg4hit \
   -lSubsysReco\
   -ltrack_reco_io \
-  -ltrackbase_historic_io
+  -ltrackbase_historic_io \
+  -lCLHEP
 
 BUILT_SOURCES = testexternals.cc
 

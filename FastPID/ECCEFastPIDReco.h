@@ -13,11 +13,14 @@ class PHCompositeNode;
 class ECCEFastPIDMap;
 class SvtxTrackMap;
 class EICPIDParticleContainer;
+class PHG4TruthInfoContainer;
+class PHG4HitContainer;
 
 class ECCEFastPIDReco : public SubsysReco
 {
  public:
-  ECCEFastPIDReco(const std::string &name = "ECCEFastPIDReco");
+  ECCEFastPIDReco(ECCEFastPIDMap *map,
+                  const std::string &name = "ECCEFastPIDReco");
 
   virtual ~ECCEFastPIDReco();
 
@@ -47,16 +50,26 @@ class ECCEFastPIDReco : public SubsysReco
 
   void setEICPIDParticleMapNodeName(const std::string &name) { m_EICPIDParticleMapNodeName = name; }
 
+  void setMatchG4Hit(const std::string &g4hit_node_name)
+  {
+    m_matchG4Hit = true;
+    m_G4HitNodeName = g4hit_node_name;
+  }
+
  private:
   bool m_matchG4Hit = false;
 
-  ECCEFastPIDMap *m_pidmap = nullptr;
+  std::string m_G4HitNodeName = "Uninitialized";
 
-  std::string m_TrackmapNodeName = "SvtxTrackMap";
+  ECCEFastPIDMap *m_pidmap;
+
+  std::string m_TrackmapNodeName = "TrackMap";
   std::string m_EICPIDParticleMapNodeName = "EICPIDParticleMap";
 
-  SvtxTrackMap * m_SvtxTrackMap = nullptr;
-  EICPIDParticleContainer * m_EICPIDParticleContainer = nullptr;
+  SvtxTrackMap *m_SvtxTrackMap = nullptr;
+  EICPIDParticleContainer *m_EICPIDParticleContainer = nullptr;
+  PHG4TruthInfoContainer *m_truthInfo = nullptr;
+  PHG4HitContainer *m_g4hits = nullptr;
 };
 
 #endif  // ECCEFASTPIDRECO_H
