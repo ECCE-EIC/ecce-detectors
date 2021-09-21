@@ -1,0 +1,56 @@
+AUTOMAKE_OPTIONS = foreign
+
+AM_CPPFLAGS = \
+  -I$(includedir) \
+  -I$(OFFLINE_MAIN)/include \
+  -I$(ROOTSYS)/include
+
+AM_LDFLAGS = \
+  -L$(libdir) \
+  -L$(OFFLINE_MAIN)/lib \
+  -L$(OFFLINE_MAIN)/lib64
+
+pkginclude_HEADERS = \
+  ECCEFastPIDReco.h \
+  ECCEFastPIDMap.h \
+  ECCEhpDIRCFastPIDMap.h \
+  ECCEmRICHFastPIDMap.h \
+  ECCEdRICHFastPIDMap.h
+
+lib_LTLIBRARIES = \
+  libECCEFastPIDReco.la
+
+libECCEFastPIDReco_la_SOURCES = \
+  ECCEFastPIDReco.cc \
+  ECCEFastPIDMap.cc \
+  ECCEhpDIRCFastPIDMap.cc \
+  ECCEdRICHFastPIDMap.cc \
+  ECCEmRICHFastPIDMap.cc
+
+libECCEFastPIDReco_la_LIBADD = \
+  -lphool \
+  -leicpidbase \
+  -lg4detectors_io \
+  -lphg4hit \
+  -lSubsysReco\
+  -ltrack_reco_io \
+  -ltrackbase_historic_io \
+  -lCLHEP
+
+BUILT_SOURCES = testexternals.cc
+
+noinst_PROGRAMS = \
+  testexternals
+
+testexternals_SOURCES = testexternals.cc
+testexternals_LDADD   = libECCEFastPIDReco.la
+
+testexternals.cc:
+	echo "//*** this is a generated file. Do not commit, do not edit" > $@
+	echo "int main()" >> $@
+	echo "{" >> $@
+	echo "  return 0;" >> $@
+	echo "}" >> $@
+
+clean-local:
+	rm -f $(BUILT_SOURCES)
