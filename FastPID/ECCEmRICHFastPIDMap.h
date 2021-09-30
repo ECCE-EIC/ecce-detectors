@@ -26,7 +26,7 @@ class ECCEmRICHFastPIDMap : public ECCEFastPIDMap {
 public:
   //   Detectors.push_back( new mRICH(0.00175, 1, 3, mom) ); // 20 psec @ 100 cm
   ECCEmRICHFastPIDMap(double trackResolution = 0.00175,
-                      double timePrecision = 1.0, double pixS = 3);
+                      double incidentAngle = 0.0, double pixS = 3);
   virtual ~ECCEmRICHFastPIDMap();
 
   PIDCandidate_LogLikelihood_map
@@ -50,6 +50,7 @@ private:
   double T_QE(double lam) const;
 
   // Physical constants (should come from elsewhere!)
+  double mElectron; // GeV/c^2
   double mPion;   // GeV/c^2
   double mKaon;   // GeV/c^2
   double mProton; // GeV/c^2
@@ -64,7 +65,7 @@ private:
   double th0;
 
   double fTrackResolution;
-  double fTimePrecision;
+  double fincidentAngle;
 
   double pLow;
   double pHigh;
