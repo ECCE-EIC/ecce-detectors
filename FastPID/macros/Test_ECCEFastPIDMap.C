@@ -21,7 +21,7 @@
 R__LOAD_LIBRARY(libECCEFastPIDReco.so)
 
 void Test_ECCEFastPIDMap(const double truth_pid = 211,   //
-                         const double momentum_GeV = 5,  //
+                         const double momentum_GeV = 8,  //
                          const double theta_rad = 3,     //
                          const double LogLikelihoodCut = 0)
 {
