@@ -91,7 +91,7 @@ ECCEmRICHFastPIDMap::getFastSmearLogLikelihood(int truth_pid,
   //electron-pion case
   if(momentum>0.59){ // pion cerenkov's threhsold at n=1.03 is ~0.59 GeV/c
     // Angle difference
-    double dth = getAng(mElectron) - getAng(mPion);
+    double dth = getAng(mElectron, momentum) - getAng(mPion, momentum);
     // Detector uncertainty
     double sigTh = sqrt(pow(getdAng(mPion, momentum), 2) +
                         pow(getdAng(mElectron, momentum), 2));
