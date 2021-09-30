@@ -65,7 +65,6 @@ private:
   double th0;
 
   double fTrackResolution;
-  double fincidentAngle;
 
   double pLow;
   double pHigh;
